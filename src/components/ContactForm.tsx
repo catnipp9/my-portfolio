@@ -37,7 +37,7 @@ export default function ContactForm() {
   return (
     <div className="bg-white/5 border border-purple-800/30 rounded-[2rem] p-6 sm:p-8">
       <h3 className="text-xl font-bold text-white mb-1">Send a Message</h3>
-      <p className="text-purple-300/50 text-sm mb-7">I'll get back to you as soon as possible.</p>
+      <p className="text-purple-300/50 text-sm mb-7">I'll get back to you as soon as possible</p>
 
       <AnimatePresence mode="wait">
         {status === 'success' ? (
@@ -51,7 +51,7 @@ export default function ContactForm() {
               <CheckCircle size={40} className="text-emerald-400" />
             </div>
             <h4 className="text-xl font-bold text-white">Message Sent!</h4>
-            <p className="text-purple-300/60 text-base max-w-xs">Thanks for reaching out. I'll reply within 24 hours.</p>
+            <p className="text-purple-300/60 text-base max-w-xs">Thanks for reaching out. I'll reply within 24 hours</p>
             <button
               onClick={() => setStatus('idle')}
               className="mt-2 px-8 py-2.5 bg-purple-500/20 border border-purple-600/40 text-purple-300 rounded-full text-base font-bold hover:bg-purple-500/30 transition-all"

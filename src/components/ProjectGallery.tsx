@@ -6,6 +6,8 @@ import ScrollReveal from './ScrollReveal.tsx';
 interface ProjectImage {
   src: string;
   alt: string;
+  /** 'contain' to show the full image (good for app screenshots), 'cover' to fill (good for landscape photos) */
+  fit?: 'contain' | 'cover';
 }
 
 export interface ProjectDetail {
@@ -13,7 +15,7 @@ export interface ProjectDetail {
   category: string;
   desc: string;
   overview: string;
-  role: string;
+  role: string[];
   tags: string[];
   gradient: string;
   images: ProjectImage[];
@@ -22,54 +24,123 @@ export interface ProjectDetail {
 }
 
 export const allProjects: ProjectDetail[] = [
+  // --- Featured (shown on home, limit=3) ---
   {
     title: 'AI-Enhanced Thermal Imaging System for Early Detection of Diabetic Peripheral Neuropathy',
-    category: 'AI-Enhanced DPN Detection System',
-    desc: 'A friendly AI system designed to help teachers understand student engagement through emotion detection.',
+    category: 'Medical AI · Computer Vision',
+    desc: 'A non-invasive AI diagnostic tool using thermal imaging to detect early signs of diabetic peripheral neuropathy.',
     overview:
-      'WildCATrack is a real-time classroom engagement tool that uses computer vision and deep learning to detect student emotions during online or in-person classes. Teachers receive a live dashboard showing engagement levels, helping them adapt their teaching in real time.',
-    role: 'Led the full-stack development including the React frontend dashboard, Python-based emotion recognition pipeline using OpenCV and TensorFlow, and REST API integration between the AI model and the web interface.',
-    tags: ['Python', 'React', 'TensorFlow', 'OpenCV', 'FastAPI', 'WebSockets'],
-    gradient: 'from-purple-900/80 to-indigo-900/80',
+      'This system combines thermal imaging hardware with a custom-trained deep learning model to identify temperature asymmetries and anomalies indicative of diabetic peripheral neuropathy (DPN) — enabling early, non-invasive screening before symptoms become irreversible. The tool outputs a risk-stratified heatmap overlay and a clinical summary report for healthcare providers.',
+    role: ['Researcher', 'Developer'],
+    tags: ['React Native', 'TensorFlow', 'OpenCV', 'YOLO11', 'Scikit-Learn', 'Supabase', 'TypeScript', 'Tailwind CSS'],
+    gradient: 'from-transparent to-transparent',
     images: [
-      { src: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200', alt: 'WildCATrack dashboard' },
-      { src: 'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&q=80&w=1200', alt: 'Emotion detection feed' },
-      { src: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1200', alt: 'Analytics view' },
+      { src: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200', alt: 'Thermal imaging dashboard' },
+      { src: 'https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=1200', alt: 'AI heatmap analysis' },
+      { src: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1200', alt: 'Clinical report view' },
     ],
-    github: 'https://github.com/',
+    github: 'https://github.com/SeesonLau/vestigia',
     live: '',
+  },
+  {
+    title: 'HanapBuhay',
+    category: 'Freelance Marketplace · Web App',
+    desc: 'A hyperlocal freelance marketplace connecting skilled workers with clients in underserved Philippine communities.',
+    overview:
+      'HanapBuhay ("find livelihood" in Filipino) bridges the gap between local skilled workers — carpenters, plumbers, tutors, caregivers — and nearby clients who need them. The platform features verified worker profiles, transparent ratings, in-app messaging, and a geo-based job-matching algorithm tailored to barangay-level proximity.',
+    role: ['Full-Stack Developer'],
+    tags: ['Next.js', 'PostgreSQL', 'Supabase', 'TypeScript', 'Tailwind CSS'],
+    gradient: 'from-transparent to-transparent',
+    images: [
+      { src: '/projects/hanapbuhay-logo.png', alt: 'HanapBuhay-logo app', fit: 'contain' },
+      { src: '/projects/HanapBuhay.png', alt: 'HanapBuhay app', fit: 'contain' },
+    ],
+    github: 'https://github.com/SeesonLau/hanapbuhay',
+    live: 'https://hanapbuhay.vercel.app/',
   },
   {
     title: 'OptiCare',
-    category: 'Healthcare Portal',
-    desc: 'A clean, accessible platform for managing health appointments with ease and security.',
+    category: 'Healthcare Portal · Web App',
+    desc: 'A full-stack optometry clinic portal streamlining patient appointments, records, and prescription management.',
     overview:
-      'OptiCare is a full-featured healthcare management portal that allows patients to book, manage, and track their medical appointments. It includes a doctor-facing dashboard, real-time notifications, and a secure patient record system.',
-    role: 'Designed and developed the full frontend in Next.js with a focus on accessibility (WCAG 2.1 AA). Built the appointment scheduling API with PostgreSQL and implemented role-based authentication using NextAuth.',
-    tags: ['Next.js', 'PostgreSQL', 'NextAuth', 'Prisma', 'Tailwind CSS'],
-    gradient: 'from-blue-900/80 to-purple-900/80',
+      'OptiCare modernizes the optometry clinic experience with a patient-facing booking portal and a staff-facing management dashboard. Patients can schedule consultations, view their prescription history, and receive appointment reminders. Clinic staff manage schedules, update records, and track inventory — all from one unified interface.',
+    role: ['Full-Stack Developer'],
+    tags: ['Next.js', 'Firebase', 'Javascript', 'Tailwind CSS'],
+    gradient: 'from-transparent to-transparent',
     images: [
-      { src: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1200', alt: 'OptiCare home' },
-      { src: 'https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&q=80&w=1200', alt: 'Appointment dashboard' },
+      { src: '/projects/opticare-logo.png', alt: 'OptiCare-logo app', fit: 'contain' },
+      { src: '/projects/OptiCare.png', alt: 'OptiCare portal', fit: 'contain' },
     ],
-    github: 'https://github.com/',
+    github: 'https://github.com/SeesonLau/danledan',
+    live: 'https://danledan.vercel.app/',
+  },
+
+  {
+    title: 'Personal Portfolio',
+    category: 'Portfolio · Web App',
+    desc: 'The very portfolio you are browsing — a performant, animated showcase of my work and skills.',
+    overview:
+      'A fully custom portfolio site built from scratch with Astro and React, featuring smooth scroll-based animations, a dynamic skills catalog, an interactive project gallery with modal deep-dives, and a working contact form. Designed with a dark purple aesthetic and optimized for performance across all screen sizes.',
+    role: ['Full-Stack Developer'],
+    tags: ['Astro', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+    gradient: 'from-transparent to-transparent',
+    images: [
+      { src: '/public/main-logo.png', alt: 'Portfolio preview', fit: 'contain' },
+      { src: '/projects/My Portfolio.png', alt: 'Portfolio preview', fit: 'contain' },
+      { src: '/projects/Portfolio preview.png', alt: 'Portfolio preview', fit: 'contain' },
+    ],
+    github: 'https://github.com/catnipp9/my-portfolio',
+    live: 'https://jamelh.vercel.app/',
+  },
+
+  // --- All Projects only (shown on /projects, no limit) ---
+  {
+    title: 'MentorMatch',
+    category: 'EdTech · Mobile App',
+    desc: 'An AI-powered mentor-mentee matchmaking app that pairs students with industry professionals based on goals and skills.',
+    overview:
+      'MentorMatch uses a compatibility algorithm — weighing career goals, skill gaps, availability, and communication style — to suggest ideal mentor-mentee pairings. Once matched, pairs can track progress through structured milestone sessions, shared resources, and in-app video calls.',
+    role: ['Full-Stack Developer'],
+    tags: ['.NET MAUI', 'Microsoft Azure SQL', 'C#'],
+    gradient: 'from-transparent to-transparent',
+    images: [
+      { src: '/projects/mentormatch-logo.png', alt: 'MentorMatch-logo app', fit: 'contain' },
+      { src: '/projects/MentorMatch.png', alt: 'MentorMatch app', fit: 'contain' },
+    ],
+    github: 'https://github.com/SeesonLau/ProjectMentorMatch',
     live: '',
   },
   {
-    title: 'LuminarAI',
-    category: 'Creative Tools',
-    desc: 'An AI-powered design companion that generates UI palettes and layout suggestions from natural language.',
+    title: 'GearFolio',
+    category: 'AI Tools · Career Platform',
+    desc: 'An AI-assisted platform that helps students and developers build a standout portfolio and navigate their career path.',
     overview:
-      'LuminarAI helps designers accelerate ideation by converting natural-language prompts into structured design tokens, color palettes, and component layout recommendations ready to paste into Figma.',
-    role: 'Built the prompt engineering pipeline, integrated the OpenAI API, and designed the Figma plugin interface using Figma Plugin API and React.',
-    tags: ['React', 'OpenAI API', 'Figma Plugin', 'Node.js', 'TypeScript'],
-    gradient: 'from-rose-900/80 to-purple-900/80',
+      'GearFolio acts as a personal career co-pilot — it analyzes a user\'s skills, projects, and goals, then generates tailored portfolio structures, suggests missing skills, and recommends curated learning resources. Users can publish their portfolio directly from the platform with a custom subdomain.',
+    role: ['AI Developer'],
+    tags: ['Next.js', 'OpenAI API', 'JavaScript', 'Appwrite', 'Tailwind CSS'],
+    gradient: 'from-transparent to-transparent',
     images: [
-      { src: 'https://images.unsplash.com/photo-1558655146-364adaf1fcc9?auto=format&fit=crop&q=80&w=1200', alt: 'LuminarAI interface' },
-      { src: 'https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?auto=format&fit=crop&q=80&w=1200', alt: 'Palette generation' },
+       { src: '/projects/gearfolio-logo.svg', alt: 'GearFolio platform', fit: 'contain' },
+       { src: '/projects/Gearfolio.png', alt: 'GearFolio platform', fit: 'contain' },
+       { src: '/projects/Gearfolio App.png', alt: 'GearFolio platform', fit: 'contain' },
     ],
-    github: 'https://github.com/',
+    github: 'https://github.com/ICPEP-SE-CITU/GearFolio',
     live: '',
+  },
+  {
+    title: 'IRON MYAN',
+    category: 'Robotics · Embedded Systems',
+    desc: 'A self-navigating robotic cat that autonomously waters household plants using sensor-based soil moisture detection.',
+    overview:
+      'IRON MYAN is an autonomous plant-care robot designed around a cat aesthetic. It uses ultrasonic sensors for obstacle avoidance, a soil moisture sensor array to identify which plants need water, and a servo-driven watering mechanism. A companion mobile app displays plant health logs and lets users set watering schedules or trigger manual runs.',
+    role: ['Firmware Developer', 'Hardware Developer'],
+    tags: ['C++', 'Arduino', 'EAGLE', 'Embedded Systems'],
+    gradient: 'from-transparent to-transparent',
+    images: [
+      { src: '/projects/ironmyan-logo.png', alt: 'IRON MYAN robot', fit: 'contain' },
+      { src: '/projects/Iron-myan.jpg', alt: 'IRON MYAN robot', fit: 'contain' },
+      { src: '/projects/IronMyan.png', alt: 'IRON MYAN robot', fit: 'contain' },
+    ],
   },
 ];
 
@@ -90,7 +161,7 @@ function ImageCarousel({ images }: { images: ProjectImage[] }) {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -30 }}
           transition={{ duration: 0.28, ease: 'easeInOut' }}
-          className="w-full h-full object-cover"
+          className={`w-full h-full ${images[idx].fit === 'contain' ? 'object-contain p-4' : 'object-cover'}`}
         />
       </AnimatePresence>
 
@@ -117,30 +188,33 @@ interface Props {
   /** How many projects to show. Undefined = show all. */
   limit?: number;
   showViewAll?: boolean;
+  showHeader?: boolean;
 }
 
-export default function ProjectGallery({ limit, showViewAll = false }: Props) {
+export default function ProjectGallery({ limit, showViewAll = false, showHeader = true }: Props) {
   const [selected, setSelected] = useState<ProjectDetail | null>(null);
   const displayed = limit ? allProjects.slice(0, limit) : allProjects;
 
   return (
     <ScrollReveal>
-      <section id="work" className="mb-28 sm:mb-36 scroll-mt-32">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-10">
-          <div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">Featured Projects</h2>
-            <p className="text-purple-300/40 text-xs mt-1">Click any card to explore details</p>
+      <section id="work" className={`${showHeader ? 'mb-28 sm:mb-36' : 'mb-4'} scroll-mt-32`}>
+        {showHeader && (
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-10">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white">Featured Projects</h2>
+              <p className="text-purple-300/40 text-xs mt-1">Click any card to explore details</p>
+            </div>
+            {showViewAll && (
+              <a
+                href="/projects"
+                className="inline-flex items-center gap-1.5 text-sm font-bold text-purple-400 hover:text-purple-300 transition-colors group"
+              >
+                View all projects
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="group-hover:translate-x-0.5 transition-transform"><path d="m9 18 6-6-6-6"/></svg>
+              </a>
+            )}
           </div>
-          {showViewAll && (
-            <a
-              href="/projects"
-              className="inline-flex items-center gap-1.5 text-sm font-bold text-purple-400 hover:text-purple-300 transition-colors group"
-            >
-              View all projects
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="group-hover:translate-x-0.5 transition-transform"><path d="m9 18 6-6-6-6"/></svg>
-            </a>
-          )}
-        </div>
+        )}
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {displayed.map((project) => (
@@ -155,7 +229,7 @@ export default function ProjectGallery({ limit, showViewAll = false }: Props) {
                 <img
                   src={project.images[0].src}
                   alt={project.title}
-                  className="w-full h-full object-cover opacity-40 group-hover:opacity-70 group-hover:scale-105 transition-all duration-500"
+                  className={`w-full h-full opacity-40 group-hover:opacity-80 transition-all duration-500 ${project.images[0].fit === 'contain' ? 'object-contain p-6' : 'object-cover group-hover:scale-105'}`}
                 />
                 <div className="absolute top-3 right-3 w-9 h-9 bg-white/10 backdrop-blur rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all translate-y-1.5 group-hover:translate-y-0">
                   <ExternalLink size={14} className="text-white" />
@@ -228,8 +302,14 @@ export default function ProjectGallery({ limit, showViewAll = false }: Props) {
                     </div>
 
                     <div>
-                      <h4 className="text-[10px] font-bold text-purple-400 uppercase tracking-widest mb-1.5">My Role</h4>
-                      <p className="text-purple-200/55 leading-relaxed text-xs sm:text-sm">{selected.role}</p>
+                      <h4 className="text-[10px] font-bold text-purple-400 uppercase tracking-widest mb-2">My Role</h4>
+                      <div className="flex flex-wrap gap-1.5">
+                        {selected.role.map((r) => (
+                          <span key={r} className="text-[10px] font-bold px-2.5 py-1 bg-purple-900/50 border border-purple-700/50 text-purple-300 rounded-full">
+                            {r}
+                          </span>
+                        ))}
+                      </div>
                     </div>
 
                     <div>

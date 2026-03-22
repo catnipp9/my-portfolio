@@ -5,26 +5,31 @@ import Footer from '../components/Footer.astro';
 import ProjectGallery from '../components/ProjectGallery.tsx';
 ---
 
-<BaseLayout title="Projects — Jamel Estrella" description="All of Jamel's software projects.">
-  <main class="max-w-screen-xl mx-auto px-4 sm:px-6 pt-10 pb-16">
+<BaseLayout title="Projects — Jamel Hadjirasul" description="All of Jamel's software projects.">
+  <main class="min-h-[100dvh] flex flex-col max-w-screen-xl mx-auto px-4 sm:px-6 pt-5 sm:pt-6 pb-8">
 
-    <!-- Prominent Back to Home button -->
-    <div class="mb-10">
+    <!-- Top bar -->
+    <div class="flex items-center justify-between mb-4">
       <a
         href="/"
-        class="inline-flex items-center gap-2.5 bg-white/5 backdrop-blur-md border border-purple-800/40 text-purple-300 px-5 py-2.5 rounded-full text-sm font-bold hover:bg-purple-900/40 hover:border-purple-600/60 hover:text-white transition-all group"
+        class="inline-flex items-center gap-2 bg-white/5 backdrop-blur-md border border-purple-800/40 text-purple-300 px-4 py-2 rounded-full text-xs font-bold hover:bg-purple-900/40 hover:border-purple-600/60 hover:text-white transition-all group"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:-translate-x-0.5 transition-transform"><path d="m15 18-6-6 6-6"/></svg>
-        Back to Home
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:-translate-x-0.5 transition-transform"><path d="m15 18-6-6 6-6"/></svg>
+        Back to Portfolio
       </a>
+      <div class="inline-flex items-center gap-2 bg-purple-900/50 border border-purple-700/50 px-3 py-1 rounded-full text-purple-300 text-[10px] font-bold">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        Eager to build more
+      </div>
     </div>
 
-    <div class="mb-8">
-      <h1 class="text-3xl sm:text-4xl font-extrabold text-white">All Projects</h1>
-      <p class="text-purple-300/45 mt-2 text-sm">Every piece of work I've shipped. Click to explore details.</p>
+    <!-- Heading -->
+    <div class="mb-5">
+      <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight">All <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-violet-400">Projects</span></h1>
+      <p class="text-purple-200/45 text-sm mt-1.5">Every piece of work I've built. Click any card to explore details.</p>
     </div>
 
-    <ProjectGallery client:load showViewAll={false} />
+    <ProjectGallery client:load showViewAll={false} showHeader={false} />
   </main>
   <Footer />
 </BaseLayout>
