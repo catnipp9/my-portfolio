@@ -11,13 +11,12 @@ import CertificateGallery from '../components/CertificateGallery.tsx';
 
 <BaseLayout>
   <Header />
-
-  <main class="max-w-screen-xl mx-auto px-4 sm:px-6 pb-20">
+  <main class="max-w-screen-xl mx-auto px-4 sm:px-6 pb-16">
     <Hero />
     <SkillsCatalog client:load />
-    <ProjectGallery client:load />
+    <!-- Show top 3 projects on home; link to /projects for all -->
+    <ProjectGallery client:load limit={3} showViewAll={true} />
     <CertificateGallery client:load />
   </main>
-
   <Footer />
 </BaseLayout>
