@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme {
+  /* Bubbly Lavender Colors */
+  --color-lavender-50: #fdfaff;
+  --color-lavender-100: #f3e8ff;
+  --color-lavender-200: #e9d5ff;
+  --color-lavender-500: #a855f7;
+
+  /* Custom Animations */
+  --animate-blob: blob 8s infinite ease-in-out;
+  --animate-bounce-slow: bounce 3s infinite;
+
+  @keyframes blob {
+    0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+    50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
+  }
+}

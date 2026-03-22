@@ -1,0 +1,23 @@
+---
+import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Footer from '../components/Footer.astro';
+import SkillsCatalog from '../components/SkillsCatalog.tsx';
+import ProjectGallery from '../components/ProjectGallery.tsx';
+import CertificateGallery from '../components/CertificateGallery.tsx';
+---
+
+<BaseLayout>
+  <Header />
+
+  <main class="max-w-screen-xl mx-auto px-4 sm:px-6 pb-20">
+    <Hero />
+    <SkillsCatalog client:load />
+    <ProjectGallery client:load />
+    <CertificateGallery client:load />
+  </main>
+
+  <Footer />
+</BaseLayout>

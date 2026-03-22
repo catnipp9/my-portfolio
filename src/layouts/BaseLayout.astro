@@ -1,0 +1,54 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+}
+const { title = "Jamel Estrella | Portfolio", description = "Computer Engineering student who loves mixing code and creativity." } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      body { font-family: 'Plus Jakarta Sans', sans-serif; }
+
+      @keyframes blob {
+        0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+        50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
+      }
+      .animate-blob { animation: blob 8s infinite ease-in-out; }
+
+      @keyframes modal-up {
+        from { opacity: 0; transform: translateY(20px) scale(0.95); }
+        to { opacity: 1; transform: translateY(0) scale(1); }
+      }
+      .animate-modal-up { animation: modal-up 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+
+      @keyframes fade-in-up {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fade-in { animation: fade-in-up 0.4s ease forwards; }
+
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+      }
+      .animate-float { animation: float 3s ease-in-out infinite; }
+    </style>
+  </head>
+  <body class="bg-[#0d0a16] text-purple-100 selection:bg-purple-800 overflow-x-hidden">
+    <!-- Fixed background gradient blobs -->
+    <div class="fixed top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-purple-900/30 blur-[120px] pointer-events-none -z-10"></div>
+    <div class="fixed bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-indigo-900/30 blur-[120px] pointer-events-none -z-10"></div>
+    <div class="fixed top-[40%] left-[60%] w-[30%] h-[30%] rounded-full bg-violet-900/20 blur-[100px] pointer-events-none -z-10"></div>
+
+    <slot />
+  </body>
+</html>

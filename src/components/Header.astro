@@ -1,0 +1,42 @@
+---
+---
+<header id="main-header" class="fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 w-[92%] max-w-5xl">
+  <nav id="header-nav" class="flex items-center justify-between px-4 sm:px-6 py-3 rounded-full shadow-lg shadow-purple-900/40 bg-white/5 backdrop-blur-md border border-white/10 transition-all duration-500">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2 shrink-0">
+      <div class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-400 to-indigo-400 flex items-center justify-center text-white font-bold text-sm shadow-md">
+        J
+      </div>
+      <span class="font-bold text-white tracking-tight hidden sm:block">Jamel Estrella</span>
+    </a>
+
+    <!-- Nav links (desktop) -->
+    <ul class="hidden md:flex gap-6 text-sm font-medium">
+      <li><a href="/#about" class="text-purple-300/70 hover:text-purple-300 transition-colors">About</a></li>
+      <li><a href="/#skills" class="text-purple-300/70 hover:text-purple-300 transition-colors">Skills</a></li>
+      <li><a href="/#work" class="text-purple-300/70 hover:text-purple-300 transition-colors">Work</a></li>
+      <li><a href="/#awards" class="text-purple-300/70 hover:text-purple-300 transition-colors">Awards</a></li>
+    </ul>
+
+    <!-- CTA -->
+    <a
+      href="/contact"
+      class="bg-purple-500 text-white px-4 sm:px-5 py-2 rounded-full text-xs font-bold hover:scale-105 hover:bg-purple-400 active:scale-95 transition-all shadow-md shadow-purple-500/30 shrink-0"
+    >
+      Get in Touch
+    </a>
+  </nav>
+</header>
+
+<script>
+  const nav = document.getElementById('header-nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      nav?.classList.add('bg-[#0d0a16]/90', 'border-purple-800/40');
+      nav?.classList.remove('bg-white/5', 'border-white/10');
+    } else {
+      nav?.classList.remove('bg-[#0d0a16]/90', 'border-purple-800/40');
+      nav?.classList.add('bg-white/5', 'border-white/10');
+    }
+  });
+</script>
