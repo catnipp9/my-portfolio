@@ -16,7 +16,7 @@ import CertificateGallery from '../components/CertificateGallery.tsx';
     <SkillsCatalog client:load />
     <!-- Show top 3 projects on home; link to /projects for all -->
     <ProjectGallery client:load limit={3} showViewAll={true} />
-    <CertificateGallery client:load />
+    <CertificateGallery client:load limit={3} showViewAll={true} />
   </main>
   <Footer />
 </BaseLayout>

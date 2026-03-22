@@ -11,19 +11,39 @@ type IconName = 'Star' | 'ShieldCheck' | 'Heart';
 
 const iconMap: Record<IconName, LucideIcon> = { Star, ShieldCheck, Heart };
 
-export default function CertificateGallery() {
+interface Props {
+  limit?: number;
+  showViewAll?: boolean;
+  showSectionHeader?: boolean;
+}
+
+export default function CertificateGallery({ limit, showViewAll = false, showSectionHeader = true }: Props) {
   const [selected, setSelected] = useState<Award | null>(null);
+  const displayed = limit ? awards.slice(0, limit) : awards;
 
   return (
     <ScrollReveal>
       <section id="awards" className="mb-20 scroll-mt-32">
-        <div className="text-center mb-10">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">Awards & Certifications</h2>
-          <p className="text-purple-300/50 text-sm">Certifications &amp; Proof of Excellence</p>
-        </div>
+        {showSectionHeader && (
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-10">
+            <div className="text-center sm:text-left">
+              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-1">Awards & Certifications</h2>
+              <p className="text-purple-300/50 text-sm">Certifications &amp; Proof of Excellence</p>
+            </div>
+            {showViewAll && (
+              <a
+                href="/awards"
+                className="inline-flex items-center gap-1.5 text-sm font-bold text-purple-400 hover:text-purple-300 transition-colors group shrink-0"
+              >
+                View all accomplishments
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-0.5 transition-transform"><path d="m9 18 6-6-6-6"/></svg>
+              </a>
+            )}
+          </div>
+        )}
 
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6">
-          {awards.map((award, index) => {
+          {displayed.map((award, index) => {
             const Icon = iconMap[award.icon as IconName];
             return (
               <motion.div
@@ -89,8 +109,8 @@ export default function CertificateGallery() {
                   <X size={16} />
                 </button>
                 <div className="flex flex-col md:flex-row h-full overflow-y-auto">
-                  <div className="md:w-3/5 h-52 md:h-auto bg-purple-900/30 shrink-0">
-                    <img src={selected.image} alt={selected.title} className="w-full h-full object-cover" />
+                  <div className="md:w-3/5 h-52 md:h-auto bg-[#0d0a16] shrink-0 flex items-center justify-center">
+                    <img src={selected.image} alt={selected.title} className="w-full h-full object-contain p-4" />
                   </div>
                   <div className="md:w-2/5 p-6 sm:p-8 flex flex-col justify-center gap-3">
                     <span className="text-[10px] font-bold text-purple-400 uppercase tracking-widest">

@@ -6,13 +6,23 @@ export interface TechItem {
   color: string;
 }
 
-export interface Project {
+export interface ProjectImage {
+  src: string;
+  alt: string;
+  fit?: 'contain' | 'cover';
+}
+
+export interface ProjectDetail {
   title: string;
   category: string;
   desc: string;
+  overview: string;
+  role: string[];
   tags: string[];
   gradient: string;
-  link: string;
+  images: ProjectImage[];
+  github?: string;
+  live?: string;
 }
 
 export interface Award {
@@ -35,48 +45,181 @@ export const techStack: TechItem[] = [
   { category: 'design', name: 'Prototyping', skills: ['User Flows', 'Prototyping', 'Design Ops'], icon: 'Sparkles', color: 'bg-rose-900/60 text-rose-300' },
 ];
 
-export const projects: Project[] = [
+export const allProjects: ProjectDetail[] = [
+  // --- Featured (shown on home, limit=3) ---
   {
-    title: 'WildCATrack',
-    category: 'Emotion Recognition AI',
-    desc: 'A friendly AI system designed to help teachers understand student engagement through emotion detection.',
-    tags: ['Python', 'React', 'AI'],
-    gradient: 'from-purple-900/80 to-indigo-900/80',
-    link: '#',
+    title: 'AI-Enhanced Thermal Imaging System for Early Detection of Diabetic Peripheral Neuropathy',
+    category: 'Medical AI · Computer Vision',
+    desc: 'A non-invasive AI diagnostic tool using thermal imaging to detect early signs of diabetic peripheral neuropathy.',
+    overview:
+      'This system combines thermal imaging hardware with a custom-trained deep learning model to identify temperature asymmetries and anomalies indicative of diabetic peripheral neuropathy (DPN) — enabling early, non-invasive screening before symptoms become irreversible. The tool outputs a risk-stratified heatmap overlay and a clinical summary report for healthcare providers.',
+    role: ['Researcher', 'Developer'],
+    tags: ['React Native', 'TensorFlow', 'OpenCV', 'YOLO11', 'Scikit-Learn', 'Supabase', 'TypeScript', 'Tailwind CSS'],
+    gradient: 'from-transparent to-transparent',
+    images: [
+      { src: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200', alt: 'Thermal imaging dashboard' },
+      { src: 'https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=1200', alt: 'AI heatmap analysis' },
+      { src: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1200', alt: 'Clinical report view' },
+    ],
+    github: 'https://github.com/SeesonLau/vestigia',
+    live: '',
+  },
+  {
+    title: 'HanapBuhay',
+    category: 'Freelance Marketplace · Web App',
+    desc: 'A hyperlocal freelance marketplace connecting skilled workers with clients in underserved Philippine communities.',
+    overview:
+      'HanapBuhay ("find livelihood" in Filipino) bridges the gap between local skilled workers — carpenters, plumbers, tutors, caregivers — and nearby clients who need them. The platform features verified worker profiles, transparent ratings, in-app messaging, and a geo-based job-matching algorithm tailored to barangay-level proximity.',
+    role: ['Full-Stack Developer'],
+    tags: ['Next.js', 'PostgreSQL', 'Supabase', 'TypeScript', 'Tailwind CSS'],
+    gradient: 'from-transparent to-transparent',
+    images: [
+      { src: '/projects/hanapbuhay-logo.png', alt: 'HanapBuhay-logo app', fit: 'contain' },
+      { src: '/projects/HanapBuhay.png', alt: 'HanapBuhay app', fit: 'contain' },
+    ],
+    github: 'https://github.com/SeesonLau/hanapbuhay',
+    live: 'https://hanapbuhay.vercel.app/',
   },
   {
     title: 'OptiCare',
-    category: 'Healthcare Portal',
-    desc: 'A clean, accessible platform for managing health appointments with ease and security.',
-    tags: ['Next.js', 'PostgreSQL'],
-    gradient: 'from-blue-900/80 to-purple-900/80',
-    link: '#',
+    category: 'Healthcare Portal · Web App',
+    desc: 'A full-stack optometry clinic portal streamlining patient appointments, records, and prescription management.',
+    overview:
+      'OptiCare modernizes the optometry clinic experience with a patient-facing booking portal and a staff-facing management dashboard. Patients can schedule consultations, view their prescription history, and receive appointment reminders. Clinic staff manage schedules, update records, and track inventory — all from one unified interface.',
+    role: ['Full-Stack Developer'],
+    tags: ['Next.js', 'Firebase', 'Javascript', 'Tailwind CSS'],
+    gradient: 'from-transparent to-transparent',
+    images: [
+      { src: '/projects/opticare-logo.png', alt: 'OptiCare-logo app', fit: 'contain' },
+      { src: '/projects/OptiCare.png', alt: 'OptiCare portal', fit: 'contain' },
+    ],
+    github: 'https://github.com/SeesonLau/danledan',
+    live: 'https://danledan.vercel.app/',
+  },
+  {
+    title: 'Personal Portfolio',
+    category: 'Portfolio · Web App',
+    desc: 'The very portfolio you are browsing — a performant, animated showcase of my work and skills.',
+    overview:
+      'A fully custom portfolio site built from scratch with Astro and React, featuring smooth scroll-based animations, a dynamic skills catalog, an interactive project gallery with modal deep-dives, and a working contact form. Designed with a dark purple aesthetic and optimized for performance across all screen sizes.',
+    role: ['Full-Stack Developer'],
+    tags: ['Astro', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+    gradient: 'from-transparent to-transparent',
+    images: [
+      { src: '/public/main-logo.png', alt: 'Portfolio preview', fit: 'contain' },
+      { src: '/projects/My Portfolio.png', alt: 'Portfolio preview', fit: 'contain' },
+      { src: '/projects/Portfolio preview.png', alt: 'Portfolio preview', fit: 'contain' },
+    ],
+    github: 'https://github.com/catnipp9/my-portfolio',
+    live: 'https://jamelh.vercel.app/',
+  },
+
+  // --- All Projects only (shown on /projects, no limit) ---
+  {
+    title: 'MentorMatch',
+    category: 'EdTech · Mobile App',
+    desc: 'An AI-powered mentor-mentee matchmaking app that pairs students with industry professionals based on goals and skills.',
+    overview:
+      'MentorMatch uses a compatibility algorithm — weighing career goals, skill gaps, availability, and communication style — to suggest ideal mentor-mentee pairings. Once matched, pairs can track progress through structured milestone sessions, shared resources, and in-app video calls.',
+    role: ['Full-Stack Developer'],
+    tags: ['.NET MAUI', 'Microsoft Azure SQL', 'C#'],
+    gradient: 'from-transparent to-transparent',
+    images: [
+      { src: '/projects/mentormatch-logo.png', alt: 'MentorMatch-logo app', fit: 'contain' },
+      { src: '/projects/MentorMatch.png', alt: 'MentorMatch app', fit: 'contain' },
+    ],
+    github: 'https://github.com/SeesonLau/ProjectMentorMatch',
+    live: '',
+  },
+  {
+    title: 'GearFolio',
+    category: 'AI Tools · Career Platform',
+    desc: 'An AI-assisted platform that helps students and developers build a standout portfolio and navigate their career path.',
+    overview:
+      'GearFolio acts as a personal career co-pilot — it analyzes a user\'s skills, projects, and goals, then generates tailored portfolio structures, suggests missing skills, and recommends curated learning resources. Users can publish their portfolio directly from the platform with a custom subdomain.',
+    role: ['AI Developer'],
+    tags: ['Next.js', 'OpenAI API', 'JavaScript', 'Appwrite', 'Tailwind CSS'],
+    gradient: 'from-transparent to-transparent',
+    images: [
+      { src: '/projects/gearfolio-logo.svg', alt: 'GearFolio platform', fit: 'contain' },
+      { src: '/projects/Gearfolio.png', alt: 'GearFolio platform', fit: 'contain' },
+      { src: '/projects/Gearfolio App.png', alt: 'GearFolio platform', fit: 'contain' },
+    ],
+    github: 'https://github.com/ICPEP-SE-CITU/GearFolio',
+    live: '',
+  },
+  {
+    title: 'IRON MYAN',
+    category: 'Robotics · Embedded Systems',
+    desc: 'A self-navigating robotic cat that autonomously waters household plants using sensor-based soil moisture detection.',
+    overview:
+      'IRON MYAN is an autonomous plant-care robot designed around a cat aesthetic. It uses ultrasonic sensors for obstacle avoidance, a soil moisture sensor array to identify which plants need water, and a servo-driven watering mechanism. A companion mobile app displays plant health logs and lets users set watering schedules or trigger manual runs.',
+    role: ['Firmware Developer', 'Hardware Developer'],
+    tags: ['C++', 'Arduino', 'EAGLE', 'Embedded Systems'],
+    gradient: 'from-transparent to-transparent',
+    images: [
+      { src: '/projects/ironmyan-logo.png', alt: 'IRON MYAN robot', fit: 'contain' },
+      { src: '/projects/Iron-myan.jpg', alt: 'IRON MYAN robot', fit: 'contain' },
+      { src: '/projects/IronMyan.png', alt: 'IRON MYAN robot', fit: 'contain' },
+    ],
   },
 ];
 
 export const awards: Award[] = [
   {
     title: "Dean's Lister",
-    org: 'University of Tech',
-    year: '2024',
+    org: 'Cebu Institute of Technology University',
+    year: '2022–2026',
     icon: 'Star',
-    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800',
-    desc: 'Recognized for consistent academic excellence during the 4th year.',
+    image: '/certificates/CIT Logo.png',
+    desc: 'Recognized for consistent academic excellence from 1st to 4th year — maintaining Dean\'s List standing throughout the entire Computer Engineering program.',
   },
   {
-    title: 'IBM Full Stack Certified',
+    title: 'IBM Full Stack Developer Professional Certificate',
     org: 'IBM / Coursera',
-    year: '2023',
+    year: '2026',
     icon: 'ShieldCheck',
-    image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800',
-    desc: 'Complete specialization in professional software engineering practices.',
+    image: '/certificates/IBM Full Stack Developer_Certificate.png',
+    desc: 'Completed 15 specialization courses covering HTML, CSS, JavaScript, React, Node.js, Python, Django, Docker, Kubernetes, CI/CD, and cloud-native development. Deployed multiple applications and delivered a capstone SaaS project.',
   },
   {
-    title: 'Best AI Innovation',
-    org: 'Tech Summit',
-    year: '2022',
-    icon: 'Heart',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800',
-    desc: 'Awarded for the WildCATrack project presentation and technical demo.',
+    title: 'Software QA Intern Certificate of Completion',
+    org: 'Arielus Software Inc.',
+    year: '2025',
+    icon: 'ShieldCheck',
+    image: '/certificates/Arielus_Certificate.png',
+    desc: 'Completed a software quality assurance internship — performing regression, smoke, and functional testing; building automated test cases with Selenium; and managing defects in Azure DevOps.',
+  },
+  {
+    title: 'Mastering PCB Design and Layout',
+    org: 'Coursera',
+    year: '2026',
+    icon: 'ShieldCheck',
+    image: '/certificates/Mastering PCB Design and Layout_Certificate.png',
+    desc: 'Completed 3-course certification in professional PCB development — covering layout fundamentals, high-speed signal routing, EMI mitigation, Design for Manufacturability, and fabrication file generation using KiCAD.',
+  },
+  {
+    title: 'Prompt Engineering Specialization',
+    org: 'Coursera',
+    year: '2026',
+    icon: 'ShieldCheck',
+    image: '/certificates/Prompt Engineering_Certificate.png',
+    desc: 'Developed expertise in prompt engineering for generative AI systems. Gained hands-on skills in instructing large language models, automating complex tasks, and integrating AI into real workflows.',
+  },
+  {
+    title: 'Mastering KiCAD: Open-Source PCB Design for Beginners',
+    org: 'Coursera',
+    year: '2026',
+    icon: 'ShieldCheck',
+    image: '/certificates/Mastering KiCAD_Certificate.png',
+    desc: 'Certified in KiCAD PCB design covering schematic & layout design, multilayer PCB, SMT & THT components, PCB panelization, and Design for Manufacturing principles.',
+  },
+  {
+    title: 'Web Development Fundamentals',
+    org: 'Coursera',
+    year: '2026',
+    icon: 'ShieldCheck',
+    image: '/certificates/Web Development Fundamentals_Certificate.png',
+    desc: 'Certified in full-cycle web development covering front-end, back-end, SDLC, software testing, deployment, and DevOps practices.',
   },
 ];

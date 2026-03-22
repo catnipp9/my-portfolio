@@ -2,10 +2,10 @@
 import '../styles/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Footer from '../components/Footer.astro';
-import ProjectGallery from '../components/ProjectGallery.tsx';
+import CertificateGallery from '../components/CertificateGallery.tsx';
 ---
 
-<BaseLayout title="Projects — Jamel Hadjirasul" description="All of Jamel's software projects.">
+<BaseLayout title="Awards & Certifications — Jamel Hadjirasul" description="All of Jamel's awards and certifications.">
   <main class="min-h-[100dvh] flex flex-col max-w-screen-xl mx-auto px-4 sm:px-6 pt-5 sm:pt-6 pb-8">
 
     <!-- Back button -->
@@ -21,17 +21,17 @@ import ProjectGallery from '../components/ProjectGallery.tsx';
 
     <!-- Heading -->
     <div class="mb-5">
-      <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight">All <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-violet-400">Projects</span></h1>
+      <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight">Awards & <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-violet-400">Certifications</span></h1>
       <div class="flex items-center justify-between gap-4 mt-1.5">
-        <p class="text-purple-200/45 text-sm">Every piece of work I've built. Click any card to explore details.</p>
+        <p class="text-purple-200/45 text-sm">Every credential and recognition I've earned. Click any card to explore details.</p>
         <div class="inline-flex items-center gap-2 bg-purple-900/50 border border-purple-700/50 px-3 py-1 rounded-full text-purple-300 text-[10px] font-bold shrink-0">
           <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-          Eager to build more
+          Always learning
         </div>
       </div>
     </div>
 
-    <ProjectGallery client:load showViewAll={false} showHeader={false} />
+    <CertificateGallery client:load showViewAll={false} showSectionHeader={false} />
   </main>
   <Footer />
 </BaseLayout>
