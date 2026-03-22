@@ -13,16 +13,31 @@ function ImageCarousel({ images }: { images: ProjectImage[] }) {
   return (
     <div className="relative w-full h-full bg-[#0d0a16] overflow-hidden">
       <AnimatePresence mode="wait">
-        <motion.img
-          key={idx}
-          src={images[idx].src}
-          alt={images[idx].alt}
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -30 }}
-          transition={{ duration: 0.28, ease: 'easeInOut' }}
-          className={`w-full h-full ${images[idx].fit === 'contain' ? 'object-contain p-4' : 'object-cover'}`}
-        />
+        {images[idx].label ? (
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.28 }}
+            className="w-full h-full flex items-center justify-center px-6"
+          >
+            <p className="text-white font-black text-xl sm:text-2xl tracking-widest uppercase text-center leading-tight opacity-30">
+              {images[idx].label}
+            </p>
+          </motion.div>
+        ) : (
+          <motion.img
+            key={idx}
+            src={images[idx].src}
+            alt={images[idx].alt}
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -30 }}
+            transition={{ duration: 0.28, ease: 'easeInOut' }}
+            className={`w-full h-full ${images[idx].fit === 'contain' ? 'object-contain p-4' : 'object-cover'}`}
+          />
+        )}
       </AnimatePresence>
 
       {images.length > 1 && (
@@ -86,11 +101,19 @@ export default function ProjectGallery({ limit, showViewAll = false, showHeader 
               onClick={() => setSelected(project)}
             >
               <div className={`aspect-[4/3] rounded-[2rem] bg-gradient-to-br ${project.gradient} mb-4 overflow-hidden relative border border-purple-800/20 group-hover:shadow-2xl group-hover:shadow-purple-900/50 transition-shadow`}>
-                <img
-                  src={project.images[0].src}
-                  alt={project.title}
-                  className={`w-full h-full opacity-40 group-hover:opacity-80 transition-all duration-500 ${project.images[0].fit === 'contain' ? 'object-contain p-6' : 'object-cover group-hover:scale-105'}`}
-                />
+                {project.images[0].label ? (
+                  <div className="w-full h-full flex items-center justify-center px-6">
+                    <p className="text-white font-black text-base tracking-widest uppercase text-center leading-tight opacity-25 group-hover:opacity-50 transition-opacity duration-500">
+                      {project.images[0].label}
+                    </p>
+                  </div>
+                ) : (
+                  <img
+                    src={project.images[0].src}
+                    alt={project.title}
+                    className={`w-full h-full opacity-40 group-hover:opacity-80 transition-all duration-500 ${project.images[0].fit === 'contain' ? 'object-contain p-6' : 'object-cover group-hover:scale-105'}`}
+                  />
+                )}
                 <div className="absolute top-3 right-3 w-9 h-9 bg-white/10 backdrop-blur rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all translate-y-1.5 group-hover:translate-y-0">
                   <ExternalLink size={14} className="text-white" />
                 </div>

@@ -70,17 +70,21 @@
     }
 
     function onScroll() {
-      const scrollY = window.scrollY + window.innerHeight * 0.35;
+      if (window.scrollY < 50) {
+        setActive(sectionIds[0]);
+        return;
+      }
+      // Use getBoundingClientRect so React island offsetTop shifts don't matter
+      const threshold = window.innerHeight * 0.5;
       let current = sectionIds[0];
       for (const id of sectionIds) {
         const el = document.getElementById(id);
-        if (el && el.offsetTop <= scrollY) current = id;
+        if (el && el.getBoundingClientRect().top <= threshold) current = id;
       }
       setActive(current);
     }
 
     window.addEventListener('scroll', onScroll, { passive: true });
-    // Run once after a short delay to allow React islands to hydrate
-    setTimeout(onScroll, 300);
+    setActive(sectionIds[0]);
   }
 </script>

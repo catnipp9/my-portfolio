@@ -10,6 +10,7 @@ export interface ProjectImage {
   src: string;
   alt: string;
   fit?: 'contain' | 'cover';
+  label?: string;
 }
 
 export interface ProjectDetail {
@@ -57,9 +58,7 @@ export const allProjects: ProjectDetail[] = [
     tags: ['React Native', 'TensorFlow', 'OpenCV', 'YOLO11', 'Scikit-Learn', 'Supabase', 'TypeScript', 'Tailwind CSS'],
     gradient: 'from-transparent to-transparent',
     images: [
-      { src: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200', alt: 'Thermal imaging dashboard' },
-      { src: 'https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=1200', alt: 'AI heatmap analysis' },
-      { src: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1200', alt: 'Clinical report view' },
+      { src: '', alt: 'Ongoing Thesis Project', label: 'ONGOING THESIS PROJECT' },
     ],
     github: 'https://github.com/SeesonLau/vestigia',
     live: '',

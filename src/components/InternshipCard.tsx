@@ -23,10 +23,11 @@ export default function InternshipCard() {
           {/* Logo */}
           <img src="/Arielus.png" alt="Arielus Software Inc." className="w-24 h-24 shrink-0 rounded-xl object-cover" />
           {/* Text */}
-          <div>
-            <p className="text-white text-sm font-bold group-hover:text-purple-300 transition-colors">Software QA Intern</p>
-            <p className="text-purple-200/70 text-xs mt-0.5">Arielus Software Inc.</p>
-            <p className="text-purple-400/80 text-[10px] font-bold uppercase tracking-widest mt-0.5">Jun – Jul 2025</p>
+          <div className="flex flex-col h-24 flex-1">
+            <p className="text-white text-base font-bold group-hover:text-purple-300 transition-colors">Software QA Intern</p>
+            <p className="text-purple-200/70 text-sm mt-0.5">Arielus Software Inc.</p>
+            <p className="text-purple-400/80 text-xs font-bold uppercase tracking-widest mt-0.5">Jun – Jul 2025</p>
+            <p className="text-purple-400/50 text-[10px] mt-auto self-end group-hover:text-purple-400/80 transition-colors">Click for more details →</p>
           </div>
         </div>
       </div>
