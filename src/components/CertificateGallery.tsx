@@ -18,7 +18,7 @@ export default function CertificateGallery() {
     <ScrollReveal>
       <section id="awards" className="mb-20 scroll-mt-32">
         <div className="text-center mb-10">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">Recognition</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">Awards & Certifications</h2>
           <p className="text-purple-300/50 text-sm">Certifications &amp; Proof of Excellence</p>
         </div>
 

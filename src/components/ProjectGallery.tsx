@@ -128,7 +128,7 @@ export default function ProjectGallery({ limit, showViewAll = false }: Props) {
       <section id="work" className="mb-28 sm:mb-36 scroll-mt-32">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-10">
           <div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">Sweet Projects</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">Featured Projects</h2>
             <p className="text-purple-300/40 text-xs mt-1">Click any card to explore details</p>
           </div>
           {showViewAll && (

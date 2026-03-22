@@ -56,8 +56,8 @@ export default function SkillsCatalog() {
     <ScrollReveal>
       <section id="skills" className="mb-28 sm:mb-36 scroll-mt-32">
         <div className="text-center mb-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">My Toolbox</h2>
-          <p className="text-purple-300/50 text-sm">The ingredients for my digital recipes</p>
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">Tech Stack</h2>
+          <p className="text-purple-300/50 text-sm">A comprehensive overview of my technical expertise and core technologies.</p>
         </div>
 
         {/* Filter buttons */}
@@ -80,7 +80,7 @@ export default function SkillsCatalog() {
         {/* Icon grid — high density */}
         <motion.div
           layout
-          className="grid grid-cols-5 sm:grid-cols-7 md:grid-cols-9 lg:grid-cols-10 gap-3"
+          className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-9 gap-4"
         >
           <AnimatePresence mode="popLayout">
             {filtered.map((skill) => (
@@ -97,15 +97,15 @@ export default function SkillsCatalog() {
                 onMouseLeave={() => setTooltip(null)}
               >
                 <motion.div
-                  whileHover={{ scale: 1.18 }}
+                  whileHover={{ scale: 1.15 }}
                   whileTap={{ scale: 0.92 }}
                   transition={{ type: 'spring', stiffness: 400, damping: 18 }}
-                  className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white/5 border border-purple-800/30 flex items-center justify-center cursor-pointer hover:border-purple-500/60 hover:bg-purple-900/30 hover:shadow-lg hover:shadow-purple-900/30 transition-colors"
+                  className="w-20 h-20 sm:w-22 sm:h-22 rounded-3xl bg-white/5 border border-purple-800/30 flex items-center justify-center cursor-pointer hover:border-purple-500/60 hover:bg-purple-900/30 hover:shadow-lg hover:shadow-purple-900/30 transition-colors"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="28"
-                    height="28"
+                    width="40"
+                    height="40"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="none"

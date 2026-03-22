@@ -3,7 +3,7 @@ export interface Props {
   title?: string;
   description?: string;
 }
-const { title = "Jamel Estrella | Portfolio", description = "Computer Engineering student who loves mixing code and creativity." } = Astro.props;
+const { title = "Jamel Hadjirasul | Portfolio", description = "Computer Engineering student dedicated to developing scalable full-stack applications and AI-driven systems." } = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
@@ -12,6 +12,7 @@ const { title = "Jamel Estrella | Portfolio", description = "Computer Engineerin
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <link rel="icon" type="image/png" href="/main-logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
