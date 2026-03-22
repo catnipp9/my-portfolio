@@ -23,8 +23,8 @@ export interface ProjectDetail {
 
 export const allProjects: ProjectDetail[] = [
   {
-    title: 'WildCATrack',
-    category: 'Emotion Recognition AI',
+    title: 'AI-Enhanced Thermal Imaging System for Early Detection of Diabetic Peripheral Neuropathy',
+    category: 'AI-Enhanced DPN Detection System',
     desc: 'A friendly AI system designed to help teachers understand student engagement through emotion detection.',
     overview:
       'WildCATrack is a real-time classroom engagement tool that uses computer vision and deep learning to detect student emotions during online or in-person classes. Teachers receive a live dashboard showing engagement levels, helping them adapt their teaching in real time.',
