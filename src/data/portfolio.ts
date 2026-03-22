@@ -105,7 +105,7 @@ export const allProjects: ProjectDetail[] = [
     tags: ['Astro', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
     gradient: 'from-transparent to-transparent',
     images: [
-      { src: '/public/main-logo.png', alt: 'Portfolio preview', fit: 'contain' },
+      { src: '/public/logo-cat.png', alt: 'Portfolio preview', fit: 'contain' },
       { src: '/projects/My Portfolio.png', alt: 'Portfolio preview', fit: 'contain' },
       { src: '/projects/Portfolio preview.png', alt: 'Portfolio preview', fit: 'contain' },
     ],
