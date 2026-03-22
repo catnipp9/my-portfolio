@@ -105,7 +105,7 @@ export const allProjects: ProjectDetail[] = [
     tags: ['Astro', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
     gradient: 'from-transparent to-transparent',
     images: [
-      { src: '/public/logo-cat.png', alt: 'Portfolio preview', fit: 'contain' },
+      { src: '/main-logo.png', alt: 'Portfolio preview', fit: 'contain' },
       { src: '/projects/My Portfolio.png', alt: 'Portfolio preview', fit: 'contain' },
       { src: '/projects/Portfolio preview.png', alt: 'Portfolio preview', fit: 'contain' },
     ],
@@ -119,7 +119,7 @@ export const allProjects: ProjectDetail[] = [
     category: 'EdTech · Mobile App',
     desc: 'An AI-powered mentor-mentee matchmaking app that pairs students with industry professionals based on goals and skills.',
     overview:
-      'MentorMatch uses a compatibility algorithm — weighing career goals, skill gaps, availability, and communication style — to suggest ideal mentor-mentee pairings. Once matched, pairs can track progress through structured milestone sessions, shared resources, and in-app video calls.',
+      'MentorMatch uses a compatibility algorithm — weighing career goals, skill gaps, availability, and communication style — to suggest ideal mentor-mentee pairings. Once matched, pairs can track progress through structured milestone sessions, shared resources, in-app chat, and notifications.',
     role: ['Full-Stack Developer'],
     tags: ['.NET MAUI', 'Microsoft Azure SQL', 'C#'],
     gradient: 'from-transparent to-transparent',
@@ -148,7 +148,7 @@ export const allProjects: ProjectDetail[] = [
     live: '',
   },
   {
-    title: 'IRON MYAN',
+    title: 'Iron Myan',
     category: 'Robotics · Embedded Systems',
     desc: 'A self-navigating robotic cat that autonomously waters household plants using sensor-based soil moisture detection.',
     overview:
@@ -174,8 +174,8 @@ export const awards: Award[] = [
     desc: 'Recognized for consistent academic excellence from 1st to 4th year — maintaining Dean\'s List standing throughout the entire Computer Engineering program.',
   },
   {
-    title: 'IBM Full Stack Developer Professional Certificate',
-    org: 'IBM / Coursera',
+    title: 'IBM Full Stack Software Developer ',
+    org: 'IBM/Coursera',
     year: '2026',
     icon: 'ShieldCheck',
     image: '/certificates/IBM Full Stack Developer_Certificate.png',
@@ -198,7 +198,7 @@ export const awards: Award[] = [
     desc: 'Completed 3-course certification in professional PCB development — covering layout fundamentals, high-speed signal routing, EMI mitigation, Design for Manufacturability, and fabrication file generation using KiCAD.',
   },
   {
-    title: 'Prompt Engineering Specialization',
+    title: 'Prompt Engineering',
     org: 'Coursera',
     year: '2026',
     icon: 'ShieldCheck',
@@ -215,7 +215,7 @@ export const awards: Award[] = [
   },
   {
     title: 'Web Development Fundamentals',
-    org: 'Coursera',
+    org: 'IBM',
     year: '2026',
     icon: 'ShieldCheck',
     image: '/certificates/Web Development Fundamentals_Certificate.png',
