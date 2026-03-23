@@ -117,7 +117,7 @@ export const allProjects: ProjectDetail[] = [
   {
     title: 'MentorMatch',
     category: 'EdTech · Mobile App',
-    desc: 'An AI-powered mentor-mentee matchmaking app that pairs students with industry professionals based on goals and skills.',
+    desc: 'A mentor-mentee matchmaking mobile app that pairs students with industry professionals based on goals and skills.',
     overview:
       'MentorMatch uses a compatibility algorithm — weighing career goals, skill gaps, availability, and communication style — to suggest ideal mentor-mentee pairings. Once matched, pairs can track progress through structured milestone sessions, shared resources, in-app chat, and notifications.',
     role: ['Full-Stack Developer'],
@@ -171,7 +171,7 @@ export const awards: Award[] = [
     year: '2022–2026',
     icon: 'Star',
     image: '/certificates/CIT Logo.png',
-    desc: 'Recognized for consistent academic excellence from 1st to 4th year — maintaining Dean\'s List standing throughout the entire Computer Engineering program.',
+    desc: 'Recognized for consistent academic excellence from 1st to 4th year — maintaining Dean\'s List standing throughout the entire Computer Engineering program. Also a Parangal Awardee, awarded to top-performing students with distinguished academic achievement.',
   },
   {
     title: 'IBM Full Stack Software Developer ',

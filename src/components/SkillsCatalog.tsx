@@ -129,7 +129,7 @@ export default function SkillsCatalog() {
         <div className="text-center mb-4">
           <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">Tech Stack</h2>
           <p className="text-purple-300/50 text-sm max-w-xl mx-auto">
-            A high-performance toolkit spanning software architecture, cloud infrastructure, and hardware engineering
+            A collection of tools and technologies I've picked up and sharpened throughout my journey as a developer
           </p>
         </div>
 

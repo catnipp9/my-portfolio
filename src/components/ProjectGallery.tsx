@@ -124,7 +124,7 @@ export default function ProjectGallery({ limit, showViewAll = false, showHeader 
                 <p className="text-purple-200/45 mb-3 leading-relaxed text-xs line-clamp-2">{project.desc}</p>
                 <div className="flex gap-1.5 flex-wrap">
                   {project.tags.slice(0, 3).map((tag) => (
-                    <span key={tag} className="text-[10px] font-bold px-2.5 py-1 bg-white/5 border border-purple-800/50 text-purple-300/55 rounded-full group-hover:border-purple-600/50 group-hover:text-purple-300 transition-all">
+                    <span key={tag} className="text-[10px] font-bold px-2.5 py-1 bg-white/5 border border-purple-800/50 text-purple-300/55 rounded-full group-hover:border-purple-600/50 group-hover:text-purple-300 transition-all cursor-default hover:bg-purple-800/40 hover:border-purple-500/70 hover:text-purple-200 hover:scale-105 active:scale-95" style={{transition: 'all 0.15s cubic-bezier(0.34,1.56,0.64,1)'}}>
                       {tag}
                     </span>
                   ))}
@@ -188,7 +188,7 @@ export default function ProjectGallery({ limit, showViewAll = false, showHeader 
                       <h4 className="text-[10px] font-bold text-purple-400 uppercase tracking-widest mb-2">My Role</h4>
                       <div className="flex flex-wrap gap-1.5">
                         {selected.role.map((r) => (
-                          <span key={r} className="text-[10px] font-bold px-2.5 py-1 bg-purple-900/50 border border-purple-700/50 text-purple-300 rounded-full">
+                          <span key={r} className="text-[10px] font-bold px-2.5 py-1 bg-purple-900/50 border border-purple-700/50 text-purple-300 rounded-full cursor-default hover:bg-purple-700/60 hover:border-purple-500/70 hover:text-white hover:scale-105 active:scale-95" style={{transition: 'all 0.15s cubic-bezier(0.34,1.56,0.64,1)'}}>
                             {r}
                           </span>
                         ))}
@@ -199,7 +199,7 @@ export default function ProjectGallery({ limit, showViewAll = false, showHeader 
                       <h4 className="text-[10px] font-bold text-purple-400 uppercase tracking-widest mb-2">Tech Stack</h4>
                       <div className="flex flex-wrap gap-1.5">
                         {selected.tags.map((tag) => (
-                          <span key={tag} className="text-[10px] font-bold px-2.5 py-1 bg-purple-900/50 border border-purple-700/50 text-purple-300 rounded-full">
+                          <span key={tag} className="text-[10px] font-bold px-2.5 py-1 bg-purple-900/50 border border-purple-700/50 text-purple-300 rounded-full cursor-default hover:bg-purple-700/60 hover:border-purple-500/70 hover:text-white hover:scale-105 active:scale-95" style={{transition: 'all 0.15s cubic-bezier(0.34,1.56,0.64,1)'}}>
                             {tag}
                           </span>
                         ))}
