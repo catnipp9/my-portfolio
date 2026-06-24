@@ -7,7 +7,7 @@ interface Skill {
   svg: string;
 }
 
-type TabKey = 'all' | 'languages' | 'frameworks' | 'mobile-ai' | 'cloud-db' | 'tools' | 'hardware';
+type TabKey = 'all' | 'languages' | 'frameworks' | 'mobile-ai' | 'cloud-db' | 'tools' | 'hardware' | 'automation';
 
 const tabs: { key: TabKey; label: string }[] = [
   { key: 'all',        label: 'All' },
@@ -17,6 +17,7 @@ const tabs: { key: TabKey; label: string }[] = [
   { key: 'cloud-db',   label: 'Cloud & Databases' },
   { key: 'tools',      label: 'Tools & DevOps' },
   { key: 'hardware',   label: 'Engineering & Hardware' },
+  { key: 'automation', label: 'Automation' },
 ];
 
 const languages: Skill[] = [
@@ -103,7 +104,32 @@ const hardware: Skill[] = [
   { name: 'Soldering', svg: '<path d="M5 19L12 5l2 2-7 13-2-1z" fill="#FF7043" opacity=".8"/><path d="M14 7l4-4 1 1-4 4" fill="#FF7043"/><path d="M12 12c2 0 4 2 4 4" stroke="#FF7043" stroke-width="1.5" fill="none" stroke-linecap="round"/>' },
 ];
 
-const allSkills: Skill[] = [...languages, ...frameworks, ...mobileAi, ...cloudDb, ...tools, ...hardware];
+const automation: Skill[] = [
+  {
+    name: 'n8n',
+    svg: `
+      <rect x="1" y="1" width="22" height="22" rx="4" fill="#EA4B71" opacity=".15" stroke="#EA4B71" stroke-width="1.5"/>
+      <text x="3.5" y="16" font-size="11" font-weight="bold" fill="#EA4B71" font-family="sans-serif">n8n</text>
+    `
+  },
+  {
+    name: 'ActivePieces',
+    svg: `
+      <rect x="1" y="1" width="22" height="22" rx="4" fill="#6E41E2" opacity=".15" stroke="#6E41E2" stroke-width="1.5"/>
+      <path d="M7 12 L12 7 L17 12 L12 17 Z" fill="#6E41E2" opacity=".8"/>
+      <circle cx="12" cy="12" r="2.5" fill="#6E41E2"/>
+    `
+  },
+  {
+    name: 'Power Automate',
+    svg: `
+      <rect x="1" y="1" width="22" height="22" rx="4" fill="#0066FF" opacity=".12" stroke="#0066FF" stroke-width="1.5"/>
+      <path d="M7 8 L17 8 L17 11 L13 11 L13 16 L10 16 L10 11 L7 11 Z" fill="#0066FF" opacity=".85"/>
+    `
+  },
+];
+
+const allSkills: Skill[] = [...languages, ...frameworks, ...mobileAi, ...cloudDb, ...tools, ...hardware, ...automation];
 
 const skillsByTab: Record<TabKey, Skill[]> = {
   all: allSkills,
@@ -113,9 +139,8 @@ const skillsByTab: Record<TabKey, Skill[]> = {
   'cloud-db': cloudDb,
   tools,
   hardware,
+  automation,
 };
-
-// No fixed min-height needed — grid naturally sizes to content
 
 export default function SkillsCatalog() {
   const [active, setActive] = useState<TabKey>('all');

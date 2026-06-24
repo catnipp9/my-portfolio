@@ -59,6 +59,38 @@ function ImageCarousel({ images }: { images: ProjectImage[] }) {
   );
 }
 
+function GithubButton({ href, label }: { href: string; label?: string }) {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <div className="relative">
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-purple-700/50 text-purple-300 rounded-full text-xs font-bold hover:bg-purple-900/40 hover:border-purple-500 transition-all"
+      >
+        <Github size={14} /> Source Code
+      </a>
+      <AnimatePresence>
+        {hovered && label && (
+          <motion.div
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 6 }}
+            transition={{ duration: 0.13 }}
+            className="absolute -top-8 left-1/2 -translate-x-1/2 bg-[#1a1330] border border-purple-700/60 text-white text-[10px] font-bold px-2.5 py-1 rounded-full whitespace-nowrap z-20 pointer-events-none shadow-lg"
+          >
+            {label}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
 interface Props {
   /** How many projects to show. Undefined = show all. */
   limit?: number;
@@ -206,16 +238,12 @@ export default function ProjectGallery({ limit, showViewAll = false, showHeader 
                       </div>
                     </div>
 
-                    <div className="flex gap-2.5 mt-auto pt-1">
+                    <div className="flex gap-2.5 mt-auto pt-1 flex-wrap">
                       {selected.github && (
-                        <a
-                          href={selected.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-purple-700/50 text-purple-300 rounded-full text-xs font-bold hover:bg-purple-900/40 hover:border-purple-500 transition-all"
-                        >
-                          <Github size={14} /> Source Code
-                        </a>
+                        <GithubButton href={selected.github} label={selected.githubLabel} />
+                      )}
+                      {selected.github2 && (
+                        <GithubButton href={selected.github2} label={selected.github2Label} />
                       )}
                       {selected.live && (
                         <a

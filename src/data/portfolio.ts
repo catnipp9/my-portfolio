@@ -23,6 +23,9 @@ export interface ProjectDetail {
   gradient: string;
   images: ProjectImage[];
   github?: string;
+  githubLabel?: string;
+  github2?: string;
+  github2Label?: string;
   live?: string;
 }
 
@@ -54,13 +57,19 @@ export const allProjects: ProjectDetail[] = [
     desc: 'A non-invasive AI diagnostic tool using thermal imaging to detect early signs of diabetic peripheral neuropathy.',
     overview:
       'This system combines thermal imaging hardware with a custom-trained deep learning model to identify temperature asymmetries and anomalies indicative of diabetic peripheral neuropathy (DPN) — enabling early, non-invasive screening before symptoms become irreversible. The tool outputs a risk-stratified heatmap overlay and a clinical summary report for healthcare providers.',
-    role: ['Researcher', 'Developer'],
+    role: ['Researcher', 'AI Developer'],
     tags: ['React Native', 'TensorFlow', 'OpenCV', 'YOLO11', 'Scikit-Learn', 'Supabase', 'TypeScript', 'Tailwind CSS'],
     gradient: 'from-transparent to-transparent',
     images: [
-      { src: '', alt: 'Ongoing Thesis Project', label: 'ONGOING THESIS PROJECT' },
+      { src: '/projects/thesis_logo.png', alt: 'Thesis logo', fit: 'contain' },
+      { src: '/projects/thesis_grouppic.jpg', alt: 'Thesis group photo', fit: 'cover' },
+      { src: '/projects/thesis_mobileapp.png', alt: 'Thesis mobile app', fit: 'contain' },
+      { src: '/projects/thesis_prototype.png', alt: 'Thesis hardware prototype', fit: 'contain' },
     ],
     github: 'https://github.com/SeesonLau/vestigia',
+    githubLabel: 'Mobile App',
+    github2: 'https://github.com/catnipp9/transistors-thermal-dpn-ai',
+    github2Label: 'AI Backend',
     live: '',
   },
   {
@@ -166,12 +175,12 @@ export const allProjects: ProjectDetail[] = [
 
 export const awards: Award[] = [
   {
-    title: "Dean's Lister",
+    title: 'Academic Honors & Leadership Recognition',
     org: 'Cebu Institute of Technology University',
     year: '2022–2026',
     icon: 'Star',
-    image: '/certificates/CIT Logo.png',
-    desc: 'Recognized for consistent academic excellence from 1st to 4th year — maintaining Dean\'s List standing throughout the entire Computer Engineering program. Also a Parangal Awardee, awarded to top-performing students with distinguished academic achievement.',
+    image: '/certificates/hadjirasuljamel_award.jpg',
+    desc: 'Graduated Cum Laude. Consistent Dean’s Lister from 1st to 4th year. Recipient of the Parangal Awardee for academic excellence and a member of the King’s Court.'
   },
   {
     title: 'IBM Full Stack Software Developer ',
